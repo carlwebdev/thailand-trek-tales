@@ -56,8 +56,8 @@ const About = () => {
             <div className="aspect-w-4 aspect-h-5 relative">
               <div className="absolute inset-0 bg-thai-turquoise/10 z-0"></div>
               <img 
-                src="https://images.unsplash.com/photo-1595514535215-95fc59bd1363?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
-                alt="Long-tail boat in Thailand" 
+                src="https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                alt="Traditional Thai longtail boat on tropical water" 
                 className="object-cover h-full w-full rounded-lg"
               />
             </div>
