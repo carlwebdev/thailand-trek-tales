@@ -8,13 +8,13 @@ const features = [
   {
     id: 1,
     title: 'Expert Local Guides',
-    description: 'Our handpicked local guides offer authentic insights and unparalleled knowledge of Thailand's hidden gems.',
+    description: 'Our handpicked local guides offer authentic insights and unparalleled knowledge of Thailand\'s hidden gems.',
     icon: Users
   },
   {
     id: 2,
     title: 'Luxury Experience',
-    description: 'From boutique hotels to 5-star resorts, we curate accommodations that reflect Thailand's unique charm and luxury.',
+    description: 'From boutique hotels to 5-star resorts, we curate accommodations that reflect Thailand\'s unique charm and luxury.',
     icon: Star
   },
   {
