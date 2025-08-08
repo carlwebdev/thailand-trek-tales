@@ -16,17 +16,18 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 180 52% 47%;
+    /* Thailand-inspired semantic colors */
+    --primary: 180 52% 47%; /* Thai turquoise */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 42 68% 52%;
+    --secondary: 42 68% 52%; /* Thai gold */
     --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 35 45% 85%; /* Thai sand */
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -34,6 +35,10 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
+
+    /* Additional Thailand colors as semantic tokens */
+    --temple: 25 68% 43%; /* Thai temple brown */
+    --jungle: 142 37% 30%; /* Thai jungle green */
 
     --radius: 0.5rem;
   }

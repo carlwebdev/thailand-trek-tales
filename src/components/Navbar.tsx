@@ -69,7 +69,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-thai-turquoise after:transition-all after:duration-300 hover:after:w-full"
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-300 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(link.href);
@@ -82,7 +82,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden text-foreground hover:text-thai-turquoise transition-colors"
+            className="md:hidden text-foreground hover:text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >

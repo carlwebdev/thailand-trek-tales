@@ -63,14 +63,9 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Thailand-inspired custom colors
-				thai: {
-					turquoise: '#39B8B0',
-					gold: '#D4AF37',
-					sand: '#F5F5DC',
-					temple: '#B3641B',
-					jungle: '#4A7B4E'
-				}
+				// Thailand-inspired semantic colors
+				temple: 'hsl(var(--temple))',
+				jungle: 'hsl(var(--jungle))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

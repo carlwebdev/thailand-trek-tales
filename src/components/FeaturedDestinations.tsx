@@ -1,7 +1,8 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useInView } from 'react-intersection-observer';
+import { FadeInSection } from '@/components/ui/fade-in-section';
+import { Button } from '@/components/ui/button';
 
 const destinations = [
   {
@@ -35,91 +36,75 @@ const destinations = [
 ];
 
 const DestinationCard = ({ destination, index }: { destination: typeof destinations[0], index: number }) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-  
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
-      ref={ref}
-      className={cn(
-        'group relative overflow-hidden rounded-lg shadow-md transition-all duration-500 hover:shadow-xl h-[500px]',
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      )}
-      style={{ transitionDelay: `${index * 100}ms` }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="absolute inset-0">
-        <div 
-          className={cn(
-            "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-10 transition-opacity duration-500",
-            isHovered ? 'opacity-90' : 'opacity-70'
-          )}
-        />
-        <img 
-          src={destination.image} 
-          alt={destination.name} 
-          className={cn(
-            "h-full w-full object-cover transition-all duration-700",
-            isHovered ? 'scale-110' : 'scale-100'
-          )}
-        />
-      </div>
-      <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-white">
-        <div className="space-y-2">
-          <div className="flex gap-2 flex-wrap mb-3">
-            {destination.tags.map((tag) => (
-              <span 
-                key={tag} 
-                className="text-xs bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full font-medium"
+    <FadeInSection delay={index * 100}>
+      <div 
+        className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl h-[500px] transition-all duration-500"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="absolute inset-0">
+          <div 
+            className={cn(
+              "absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-10 transition-opacity duration-500",
+              isHovered ? 'opacity-90' : 'opacity-70'
+            )}
+          />
+          <img 
+            src={destination.image} 
+            alt={destination.name} 
+            className={cn(
+              "h-full w-full object-cover transition-all duration-700",
+              isHovered ? 'scale-110' : 'scale-100'
+            )}
+          />
+        </div>
+        <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 text-white">
+          <div className="space-y-2">
+            <div className="flex gap-2 flex-wrap mb-3">
+              {destination.tags.map((tag) => (
+                <span 
+                  key={tag} 
+                  className="text-xs bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h3 className="text-2xl font-serif font-medium">{destination.name}</h3>
+            <p className="text-sm text-white/80 max-w-xs">{destination.description}</p>
+            
+            <div className={cn(
+              "pt-4 transform transition-all duration-500",
+              isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            )}>
+              <Button 
+                size="sm" 
+                className="bg-white text-foreground hover:bg-white/90"
               >
-                {tag}
-              </span>
-            ))}
-          </div>
-          <h3 className="text-2xl font-serif font-medium">{destination.name}</h3>
-          <p className="text-sm text-white/80 max-w-xs">{destination.description}</p>
-          
-          <div className={cn(
-            "pt-4 transform transition-all duration-500",
-            isHovered ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-          )}>
-            <button className="text-sm bg-white text-gray-900 hover:bg-white/90 px-4 py-2 rounded font-medium transition-colors">
-              Explore Destination
-            </button>
+                Explore Destination
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </FadeInSection>
   );
 };
 
 const FeaturedDestinations = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <section id="destinations" className="section-padding bg-white">
+    <section id="destinations" className="section-padding bg-background">
       <div className="container-custom">
-        <div 
-          ref={ref}
-          className={cn(
-            "text-center max-w-2xl mx-auto mb-16 transition-all duration-500",
-            inView ? "opacity-100" : "opacity-0 translate-y-8"
-          )}
-        >
-          <p className="text-caption text-thai-turquoise mb-2">Discover Thailand</p>
+        <FadeInSection className="text-center max-w-2xl mx-auto mb-16">
+          <p className="text-caption text-primary mb-2">Discover Thailand</p>
           <h2 className="heading-lg mb-4">Featured Destinations</h2>
-          <p className="text-body text-gray-600">
+          <p className="text-body text-muted-foreground">
             From bustling cities to serene beaches and ancient temples, Thailand offers a diverse range of experiences for every traveler.
           </p>
-        </div>
+        </FadeInSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {destinations.map((destination, index) => (
